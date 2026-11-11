@@ -1,34 +1,42 @@
-# Ambey Computers website
+# Ambey Computers — Cloudflare Pages Website
 
-Responsive static website for Ambey Computers.
+This is a complete static website rebuild using the approved **Premium Circuit Edition** visual identity.
 
-## Files
-- `index.html` — page content, SEO metadata and LocalBusiness structured data
-- `styles.css` — responsive styling for mobile, tablet and desktop
-- `script.js` — mobile navigation and current footer year
-- `favicon.svg` — browser icon
+## Deploy to Cloudflare Pages
 
-## Publish to ambeycomputers.in
-1. Upload the contents of this folder to the document root (`public_html`) of your web hosting account.
-2. Make sure `index.html` is directly inside the document root.
-3. In your domain DNS, point the root domain and `www` hostname to the hosting provider's required records. Use the exact A/AAAA/CNAME values supplied by your host; do not guess them.
-4. Enable HTTPS/SSL in your hosting control panel.
-5. Set a redirect so one preferred hostname is canonical. The page metadata currently uses `https://www.ambeycomputers.in/`.
+1. Download and extract this ZIP.
+2. In Cloudflare Dashboard, open **Workers & Pages → Pages → ambey-computers**.
+3. Choose **Create deployment** / **Upload assets** (Direct Upload).
+4. Upload the extracted folder contents (the folder containing `index.html`, `_headers`, `assets/`, etc.).
+5. Deploy. Do not upload the ZIP as a single website file.
+6. Test `https://ambeycomputers.in` and `https://www.ambeycomputers.in`.
 
-## Before launch
-- The brief contained `wwe.ambeycomputers.in`; this build assumes the intended address is `www.ambeycomputers.in`.
-- Confirm with your hosting provider whether the domain is connected and whether the `www` DNS record exists.
-- Add actual opening hours, product brands, prices, warranty terms and any additional services only after confirming them.
-- Test the call, WhatsApp, email and map links on a phone after publishing.
+## Project structure
 
-No hosting account, DNS records or domain settings have been changed by creating these files.
+- `index.html` — responsive single-page business website
+- `styles.css` — local CSS, no external framework or font dependency
+- `script.js` — tiny local navigation script
+- `assets/` — current circular master, horizontal logo, favicon and social image
+- `_headers` — security headers and long-lived asset caching
+- `robots.txt`, `sitemap.xml`, `site.webmanifest` — search and install metadata
+- `404.html` — branded not-found page
 
+## Performance and security choices
 
-## Official Ambey Computers logo update
-The site now uses the navy/orange/white circular and horizontal logo assets in `assets/`.
-- Header: `assets/ambey-horizontal.svg`
-- About and footer: `assets/ambey-circular-transparent.png`
-- Browser icon: `assets/favicon.ico` and PNG touch icons
+- No third-party JavaScript, analytics, trackers, frameworks or remote font requests.
+- WebP is used for primary logo placement with PNG fallback where appropriate.
+- Responsive layout, reduced-motion support, lazy loading for below-the-fold logo.
+- Cloudflare `_headers` adds CSP, HSTS, anti-framing, MIME sniffing and referrer protections.
+- Immutable caching for `/assets/*`; HTML revalidates.
 
-## Publish on Cloudflare Pages
-Upload the contents of this ZIP to the same Cloudflare Pages project using the deployment method you already use. Keep `index.html` at the project root and retain the `assets/` folder. Do not upload the ZIP as a nested folder. After deployment, check the homepage on desktop and mobile, then verify the logo and favicon load.
+## Important DNS note
+
+Keep existing email MX, SPF, DKIM and DMARC DNS records when configuring the website domain. Do not change mail records to deploy this static site.
+
+## Contact details carried forward from the previous site
+
+Phone / WhatsApp: +91 91613 56994  
+Email: care@ambeycomputers.in  
+Address: Near Ambey Library, Belwa, Ranipur Rajmo, Mohammadpur, Azamgarh, Uttar Pradesh 276205, India.
+
+If any business detail changes, update `index.html` and the JSON-LD block together.
