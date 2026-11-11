@@ -22,3 +22,13 @@ Responsive static website for Ambey Computers.
 - Test the call, WhatsApp, email and map links on a phone after publishing.
 
 No hosting account, DNS records or domain settings have been changed by creating these files.
+
+
+## Official Ambey Computers logo update
+The site now uses the navy/orange/white circular and horizontal logo assets in `assets/`.
+- Header: `assets/ambey-horizontal.svg`
+- About and footer: `assets/ambey-circular-transparent.png`
+- Browser icon: `assets/favicon.ico` and PNG touch icons
+
+## Publish on Cloudflare Pages
+Upload the contents of this ZIP to the same Cloudflare Pages project using the deployment method you already use. Keep `index.html` at the project root and retain the `assets/` folder. Do not upload the ZIP as a nested folder. After deployment, check the homepage on desktop and mobile, then verify the logo and favicon load.
